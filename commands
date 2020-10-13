@@ -1,0 +1,84 @@
+packet=IP(dst="192.168.201.11")/TCP(dport=22)/"TEST"
+packet
+response=sr(packet)
+response=sr(packet)
+packet=IP(dst="192.168.201.11")/TCP(dport=80)/"TEST"
+response=sr(packet)
+response=sr(packet)
+ls(packet)
+packet=IP(dst="192.168.201.11")/TCP(dport=80,sport=10333)/"TEST"
+ls(packet)
+response=sr(packet)
+response
+response response[0][0]
+response[0][0]
+packet2=IP(dst="192.168.201.11")/TCP(dport=(1,100),sport=10333)/"TEST"
+response2=sr(packet)
+response2
+packet2=IP(dst="192.168.201.11")/TCP(dport=(1,100),sport=10333)
+response2=sr(packet2)
+res,unans=sr(packet2,timout=5)
+res,unans=sr(packet2,timeout=5)
+packet2=IP(dst="192.168.201.11")/TCP(dport=(1,100),sport=10333,flags=2)
+res,unans=sr(packet2,timeout=5)
+packet2=IP(dst="192.168.201.11")/TCP(dport=(1,100),sport=10333,flags="S")
+res,unans=sr(packet2,timeout=5)
+res,unans=sr(packet2)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+for a in res:
+    if a[1][1].flags==18:
+        print a[1].sport
+for a in res:
+    if a[1][1].flags==18:
+        print (a[1].sport)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+for a in res:
+    if a[1][1].flags==18:
+        print (a[1].sport)
+res,unans=sr(packet2,timeout=10)
+packet2=IP(dst="192.168.201.14")/TCP(dport=(1,100),sport=10333,flags="S")
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+packet2=IP(dst="192.168.201.14")/TCP(dport=(1,100),sport=10333,flags="S")
+res,unans=sr(packet2,timeout=10)
+for a in res:
+    if a[1][1].flags==18:
+        print (a[1].sport)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+packet2=IP(dst="192.168.201.11")/TCP(dport=(1,100),sport=10333,flags="S")
+for a in res:
+    if a[1][1].flags==18:
+        print (a[1].sport)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+res,unans=sr(packet2,timeout=10)
+for a in res:
+    if a[1][1].flags==18:
+        print (a[1].sport)
+res,unans=sr(packet2,timeout=10)
+packet2=IP(dst="172.17.1.203")
+sendpfast(packet2,loop=1000)
+sendpfast(packet2,loop=1000)
+packet2
+ls(packet2)
+packet2=IP(dst="172.17.1.203")/ICMP('A'*100)*100
+packet2
+sendpfast(packet2,loop=1000)
+sendpfast(packet2,loop=1000)
+
+
+
+
+
